@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <title>My first WEBShop</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable border="1" style="border-collapse: collapse" var="product" value="#{productManagedBean.allItems}">
+                <h:column>
+                    <f:facet name="header">Proizvod</f:facet>
+                        #{product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cijena</f:facet>
+                        #{product.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Dodaj</f:facet>
+                    <h:commandButton value="U korpu" actionListener="#{productManagedBean.addProductToShoppingCart(product)}">
+                        <f:ajax execute="@form" render="shoppingCartTable"></f:ajax>
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:outputText value="Količina"/>
+            <h:selectOneMenu value="#{productManagedBean.quantity}">
+                <f:selectItem itemValue="1" itemLabel="1 proizvod"/>
+                <f:selectItem itemValue="2" itemLabel="2 proizvoda"/>
+                <f:selectItem itemValue="3" itemLabel="3 proizvoda"/>
+                <f:selectItem itemValue="4" itemLabel="4 proizvoda"/>
+            </h:selectOneMenu>
+        </h:form>
+        
+        <br/>
+        <h3>Vaša korpa:</h3>
+        <h:dataTable border="1" style="border-collapse: collapse" id="shoppingCartTable" var="shoppingCartItem" value="#{productManagedBean.shoppingCartItems}">
+            <h:column>
+                <f:facet name="header">Ime proizvoda</f:facet>
+                #{shoppingCartItem.item.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Jedinična cijena</f:facet>
+                #{shoppingCartItem.item.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Količina</f:facet>
+                #{shoppingCartItem.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ukupna cijena</f:facet>
+                #{shoppingCartItem.totalPrice}
+            </h:column>
+            <h:button value="Kupi"/>
+            
+            <h:outputText value="Vasa narudžba je primljena" style="color: red"/>
+        </h:dataTable>
+    </h:body>
+</html>
+

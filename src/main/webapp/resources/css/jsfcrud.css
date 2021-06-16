@@ -1,0 +1,38 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3a4f54;
+    background-color: #9bbecc;
+    
+}
+table {
+    empty-cells: show;
+}
+
+form {
+    
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+    padding-right: 6px;
+    background-color: #b2d5d6;
+}
+
+td {
+    vertical-align: top;
+    padding-bottom: 8px;
+    font-size: small;
+}
+
+tr.odd_row {
+    background-color: #fefeff;
+    color: #4e6a71;
+}
+
+
+tr.even_row {
+    background-color: #eff5fa;
+    color: #4e6a71;
+}
+
