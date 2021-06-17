@@ -3,36 +3,44 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #3a4f54;
     background-color: #9bbecc;
-    
+
 }
-table {
-    empty-cells: show;
+.order-table{   
+    border: 1px solid gray;
+    width: 50%;
+    border-collapse: collapse;
+    border-color: black;
+}
+
+.order-table-header{
+    border: 1px solid gray;
+    text-align:center;
+    background-color:#4e6a71;
+    color: white;
+    padding:16px;
+}
+
+.order-table-odd-row{
+    border: 1px solid gray;
+    text-align:center;
+    background-color: #fefeff;
+    color: #4e6a71;
+}
+
+.order-table-even-row{
+    border: 1px solid gray;
+    text-align:center;
+    background-color: #eff5fa;
+    color: #4e6a71;
 }
 
 form {
-    
+
     text-align: left;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 25px;
     padding-right: 6px;
     background-color: #b2d5d6;
-}
-
-td {
-    vertical-align: top;
-    padding-bottom: 8px;
-    font-size: small;
-}
-
-tr.odd_row {
-    background-color: #fefeff;
-    color: #4e6a71;
-}
-
-
-tr.even_row {
-    background-color: #eff5fa;
-    color: #4e6a71;
 }
 

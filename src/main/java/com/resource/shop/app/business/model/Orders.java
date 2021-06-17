@@ -47,7 +47,7 @@ public class Orders implements Serializable {
     @Column(name = "quantity")
     private int quantity;
     @ManyToMany(mappedBy = "ordersList")
-    private List<Items> itemsList;
+    private List<Product> productList;
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private User idUser;
@@ -81,12 +81,12 @@ public class Orders implements Serializable {
     }
 
     @XmlTransient
-    public List<Items> getItemsList() {
-        return itemsList;
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public void setItemsList(List<Items> itemsList) {
-        this.itemsList = itemsList;
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
     public User getIdUser() {
@@ -119,7 +119,7 @@ public class Orders implements Serializable {
 
     @Override
     public String toString() {
-        return "com.resource.shop.app.entity.Orders[ id=" + id + " ]";
+        return "com.resource.shop.app.business.model.Orders[ id=" + id + " ]";
     }
     
 }

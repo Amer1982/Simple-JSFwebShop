@@ -1,6 +1,5 @@
 package com.resource.shop.app.business;
 
-import com.resource.shop.app.business.model.Privilege;
 import com.resource.shop.app.business.model.User;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -15,7 +14,7 @@ public class RegisterSessionBean implements RegisterSessionBeanLocal {
     private EntityManager entityManager;
 
     @Override
-    public boolean register(String username, String password, String name, String surname) {
+    public boolean register(Integer id, String username, String password, String name, String surname) {
         try {
             Query query = entityManager.createNamedQuery("User.findByUsername").setParameter("username", username);
             List<User> users = (List<User>) query.getResultList();
@@ -23,6 +22,7 @@ public class RegisterSessionBean implements RegisterSessionBeanLocal {
                 return false;
             }
             User user = new User();
+            user.setId(id);
             user.setName(name);
             user.setSurname(surname);
             user.setPassword(password);

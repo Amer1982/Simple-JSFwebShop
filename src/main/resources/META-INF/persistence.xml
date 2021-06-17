@@ -11,5 +11,7 @@
     <class>com.resource.shop.app.business.model.Items</class>
     <class>com.resource.shop.app.business.model.Privilege</class>
     <class>com.resource.shop.app.business.model.User</class>
+    <class>com.resource.shop.app.business.model.Product</class>
+    <class>com.resource.shop.app.business.model.OrderItem</class>
   </persistence-unit>
 </persistence>

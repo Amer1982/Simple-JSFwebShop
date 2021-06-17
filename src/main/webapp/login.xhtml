@@ -6,9 +6,9 @@
         <title>Prijava</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
-    <h:body>
+    <h:body style="padding: 60px; min-height: 2000px;">
         <h3>Prijava novog korisnika</h3>
-        <h:form>
+        <h:form id="loginForm">
             <h:panelGrid columns="3">
                 <h:outputText value="Korisničko ime:"/>
                 <h:inputText id="username" value="#{loginManagedBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>

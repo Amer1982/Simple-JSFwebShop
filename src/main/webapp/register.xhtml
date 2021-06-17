@@ -11,18 +11,22 @@
         <h:form>
             <h:panelGrid columns="1">
                 <!--PRVI RED -->
+                <h:outputText value="ID:"/>
+                <h:inputText id="id" value="#{registerManageBean.id}" required="true" requiredMessage="ID je obavezno"/>
+                <h:message for="id" style="color: red"/>
+                <!--DRUGI RED -->
                 <h:outputText value="Korisničko ime:"/>
                 <h:inputText id="username" value="#{registerManageBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>
                 <h:message for="username" style="color: red"/>
-                <!--DRUGI RED -->
+                <!--TREĆI RED -->
                 <h:outputText value="Lozinka:"/>
                 <h:inputSecret id="password" value="#{registerManageBean.password}" required="true" requiredMessage="Lozinka je obavezna"/>
                 <h:message for="password" style="color: red"/>
-                <!--TREĆI RED -->
+                <!--ČETVRTI RED -->
                 <h:outputText value="Ime:"/>
                 <h:inputText id="name" value="#{registerManageBean.name}" required="true" requiredMessage="Ime je obavezno"/>
                 <h:message for="name" style="color: red"/>
-                <!--ČETVRTI RED -->
+                <!--PETI RED -->
                 <h:outputText value="Prezime:"/>
                 <h:inputText id="surname" value="#{registerManageBean.surname}" required="true" requiredMessage="Prezime je obavezno"/>
                 <h:message for="surname" style="color: red"/>

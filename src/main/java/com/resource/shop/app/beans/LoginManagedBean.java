@@ -1,7 +1,9 @@
 
 package com.resource.shop.app.beans;
 
+import com.resource.shop.app.business.AccessPrivilege;
 import com.resource.shop.app.business.LoginSessionBeanLocal;
+import com.resource.shop.app.business.model.Privilege;
 import com.resource.shop.app.business.model.User;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -22,9 +24,17 @@ public class LoginManagedBean implements Serializable{
     }
     
     public String login(){
+        
+        
         User user = loginSessionBeanLocal.login(username, password);
-        if(user !=null){
-                   return "index";
+        Privilege privilege = user.getIdPrivilage();
+        
+        if(AccessPrivilege.USER.getId()==privilege.getId()){
+            return "index";
+        /*if(user !=null){
+                   return "index";*/
+        }else if (AccessPrivilege.ADMIN.getId()==privilege.getId()){
+        return "admin";
         }else{
             message = "Pogrešna kombinacija korisničkog imena :  " +username+" i lozinke : " + password;
             return "login";

@@ -4,14 +4,18 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
+    <title>My first WEBShop</title>
+    <h:outputStylesheet name="css/jsfcrud.css"/>
     <h:head>
         <title>My first WEBShop</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <h:dataTable border="1" style="border-collapse: collapse" var="product" value="#{productManagedBean.allItems}">
+            <h:dataTable border="1" style="border-collapse: collapse" var="product" value="#{productManagedBean.allProducts}"
+                         styleClass="order-table"
+                         headerClass="order-table-header"
+                         rowClasses="order-table-odd-row,order-table-even-row">
                 <h:column>
                     <f:facet name="header">Proizvod</f:facet>
                         #{product.name}
@@ -36,30 +40,32 @@
                 <f:selectItem itemValue="4" itemLabel="4 proizvoda"/>
             </h:selectOneMenu>
         </h:form>
-        
+
         <br/>
         <h3>Vaša korpa:</h3>
-        <h:dataTable border="1" style="border-collapse: collapse" id="shoppingCartTable" var="shoppingCartItem" value="#{productManagedBean.shoppingCartItems}">
+        <h:dataTable border="1" style="border-collapse: collapse" id="shoppingCartTable" var="shoppingCartItem" value="#{productManagedBean.shoppingCartItems}"
+                     styleClass="order-table"
+                     headerClass="order-table-header"
+                     rowClasses="order-table-odd-row,order-table-even-row">
             <h:column>
                 <f:facet name="header">Ime proizvoda</f:facet>
-                #{shoppingCartItem.item.name}
+                    #{shoppingCartItem.product.name}
             </h:column>
             <h:column>
                 <f:facet name="header">Jedinična cijena</f:facet>
-                #{shoppingCartItem.item.price}
+                    #{shoppingCartItem.product.price}
             </h:column>
             <h:column>
                 <f:facet name="header">Količina</f:facet>
-                #{shoppingCartItem.quantity}
+                    #{shoppingCartItem.quantity}
             </h:column>
             <h:column>
                 <f:facet name="header">Ukupna cijena</f:facet>
-                #{shoppingCartItem.totalPrice}
+                    #{shoppingCartItem.totalPrice}
             </h:column>
             <h:button value="Kupi"/>
-            
+
             <h:outputText value="Vasa narudžba je primljena" style="color: red"/>
         </h:dataTable>
     </h:body>
 </html>
-

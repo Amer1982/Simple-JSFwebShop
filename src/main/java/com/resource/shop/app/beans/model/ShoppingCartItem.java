@@ -1,26 +1,26 @@
 package com.resource.shop.app.beans.model;
 
-import com.resource.shop.app.business.model.Items;
+import com.resource.shop.app.business.model.Product;
 import java.io.Serializable;
 
 public class ShoppingCartItem implements Serializable{
-    private Items item;
+    private Product product;
     private Integer quantity;
 
     public ShoppingCartItem() {
     }
 
-    public ShoppingCartItem(Items item, Integer quantity) {
-        this.item = item;
+    public ShoppingCartItem(Product product, Integer quantity) {
+        this.product = product;
         this.quantity = quantity;
     }
 
-    public Items getItem() {
-        return item;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setItem(Items item) {
-        this.item = item;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public Integer getQuantity() {
@@ -33,6 +33,6 @@ public class ShoppingCartItem implements Serializable{
     
     
     public double getTotalPrice(){
-        return quantity*item.getPrice();
+        return quantity*product.getPrice();
     }
 }

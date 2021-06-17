@@ -6,6 +6,7 @@
 package com.resource.shop.app.business.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -29,14 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author bnc
  */
 @Entity
-@Table(name = "items")
+@Table(name = "product")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Items.findAll", query = "SELECT i FROM Items i"),
-    @NamedQuery(name = "Items.findById", query = "SELECT i FROM Items i WHERE i.id = :id"),
-    @NamedQuery(name = "Items.findByName", query = "SELECT i FROM Items i WHERE i.name = :name"),
-    @NamedQuery(name = "Items.findByPrice", query = "SELECT i FROM Items i WHERE i.price = :price")})
-public class Items implements Serializable {
+    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
+    @NamedQuery(name = "Product.findById", query = "SELECT p FROM Product p WHERE p.id = :id"),
+    @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Product p WHERE p.name = :name"),
+    @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")})
+public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -55,19 +56,19 @@ public class Items implements Serializable {
     @Column(name = "price")
     private long price;
     @JoinTable(name = "order_item", joinColumns = {
-        @JoinColumn(name = "idItems", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "idProducts", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "idOrder", referencedColumnName = "id")})
     @ManyToMany
     private List<Orders> ordersList;
 
-    public Items() {
+    public Product() {
     }
 
-    public Items(Integer id) {
+    public Product(Integer id) {
         this.id = id;
     }
 
-    public Items(Integer id, String name, long price) {
+    public Product(Integer id, String name, long price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -116,10 +117,10 @@ public class Items implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Items)) {
+        if (!(object instanceof Product)) {
             return false;
         }
-        Items other = (Items) object;
+        Product other = (Product) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -128,7 +129,7 @@ public class Items implements Serializable {
 
     @Override
     public String toString() {
-        return "com.resource.shop.app.entity.Items[ id=" + id + " ]";
+        return "com.resource.shop.app.business.model.Product[ id=" + id + " ]";
     }
     
 }

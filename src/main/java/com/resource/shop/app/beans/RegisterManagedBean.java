@@ -14,6 +14,9 @@ public class RegisterManagedBean implements Serializable {
     @EJB
     private RegisterSessionBeanLocal registerSessionBeanLocal;
 
+    
+
+    private Integer id;
     private String username;
     private String password;
     private String name;
@@ -25,7 +28,7 @@ public class RegisterManagedBean implements Serializable {
 
     //register metoda - navigacija ka drugom jsf
     public String register() {
-        boolean userCreated = registerSessionBeanLocal.register(username, password, name, surname);
+        boolean userCreated = registerSessionBeanLocal.register(id, username, password, name, surname);
         if (userCreated) {
             return "index";
         } else {
@@ -35,6 +38,14 @@ public class RegisterManagedBean implements Serializable {
         }
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getUsername() {
         return username;
     }

@@ -109,7 +109,7 @@ public class Privilege implements Serializable {
 
     @Override
     public String toString() {
-        return "com.resource.shop.app.entity.Privilege[ id=" + id + " ]";
+        return "com.resource.shop.app.business.model.Privilege[ id=" + id + " ]";
     }
     
 }
