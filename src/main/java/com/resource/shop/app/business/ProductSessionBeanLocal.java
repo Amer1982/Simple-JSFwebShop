@@ -8,4 +8,13 @@ import javax.ejb.Local;
 public interface ProductSessionBeanLocal {
 
     public List<Product> getAllProducts();
+    
+    public Product getProductById(int id);
+    
+    public void addProduct(Product product);
+    
+    public void editProduct(Product modifiedProduct);
+    
+    public void deleteProduct(int productId);
+    
 }

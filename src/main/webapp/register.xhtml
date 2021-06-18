@@ -10,10 +10,7 @@
         <h3>Registracija novog korisnika</h3>
         <h:form>
             <h:panelGrid columns="1">
-                <!--PRVI RED -->
-                <h:outputText value="ID:"/>
-                <h:inputText id="id" value="#{registerManageBean.id}" required="true" requiredMessage="ID je obavezno"/>
-                <h:message for="id" style="color: red"/>
+                
                 <!--DRUGI RED -->
                 <h:outputText value="Korisničko ime:"/>
                 <h:inputText id="username" value="#{registerManageBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>

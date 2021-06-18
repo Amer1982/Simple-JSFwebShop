@@ -28,7 +28,7 @@ public class RegisterManagedBean implements Serializable {
 
     //register metoda - navigacija ka drugom jsf
     public String register() {
-        boolean userCreated = registerSessionBeanLocal.register(id, username, password, name, surname);
+        boolean userCreated = registerSessionBeanLocal.register(username, password, name, surname);
         if (userCreated) {
             return "index";
         } else {

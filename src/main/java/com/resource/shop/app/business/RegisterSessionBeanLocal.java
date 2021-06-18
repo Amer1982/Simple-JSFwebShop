@@ -6,5 +6,5 @@ import javax.ejb.Local;
 @Local
 public interface RegisterSessionBeanLocal {
     
-    public boolean register(Integer id, String username, String password, String name, String surname);
+    public boolean register(String username, String password, String name, String surname);
 }

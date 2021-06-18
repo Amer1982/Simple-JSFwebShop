@@ -14,6 +14,10 @@
                          headerClass="order-table-header"
                          rowClasses="order-table-odd-row,order-table-even-row">
                 <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{product.id}
+                </h:column>
+                <h:column>
                     <f:facet name="header">Proizvod</f:facet>
                         #{product.name}
                 </h:column>
@@ -22,13 +26,33 @@
                         #{product.price}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Dodaj</f:facet>
-                    <h:commandButton value="U korpu" actionListener="#{productManagedBean.addProductToShoppingCart(product)}">
-                        <f:ajax execute="@form" render="shoppingCartTable"></f:ajax>
+                    <f:facet name="header">Ažuriraj</f:facet>
+                    
+                    <h:commandButton value="Ažuriraj" actionListener="#{productManagedBean.goToEditProduct(product)}">
+                        <h:commandButton value="Izbriši" actionListener="#{productManagedBean.deleteProduct(product.id)}"   
+                        onclick="return confirm('Do you want to remove this product?')"/>
                     </h:commandButton>
                 </h:column>
             </h:dataTable>
         </h:form>
+        <br/>
+        <h:form>
+            <h:panelGrid columns="1">
+                                 
+                 <h:outputText value="Proizvod:"/>
+                 <h:inputText id="productName" value="#{productManagedBean.name}" required="true" requiredMessage="Ime je obavezno"/>
+                <h:message for="id" style="color: red"/>
+                
+                 <h:outputText value="Cijena:"/>
+                 <h:inputText id="price" value="#{productManagedBean.price}" required="true" requiredMessage="Cijena je obavezno"/>
+                <h:message for="id" style="color: red"/>
+                
+                <h:commandButton value="Dodaj" action="#{productManagedBean.addProduct()}"/>
+                <h:outputText value="#{registerManageBean.message}" style="color: red"/>
+                
+            </h:panelGrid>
+                
+            </h:form>
     </h:body>
 </html>
 
