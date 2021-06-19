@@ -15,7 +15,7 @@
                          rowClasses="order-table-odd-row,order-table-even-row">
                 <h:column>
                     <f:facet name="header">ID</f:facet>
-                    #{product.id}
+                        #{product.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Proizvod</f:facet>
@@ -27,32 +27,31 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Ažuriraj</f:facet>
-                    
-                    <h:commandButton value="Ažuriraj" actionListener="#{productManagedBean.goToEditProduct(product)}">
-                        <h:commandButton value="Izbriši" actionListener="#{productManagedBean.deleteProduct(product.id)}"   
-                        onclick="return confirm('Do you want to remove this product?')"/>
-                    </h:commandButton>
+
+                    <h:commandButton value="Ažuriraj" actionListener="#{productManagedBean.goToEditProduct(product)}"/>
+                    <h:commandButton value="Izbriši" actionListener="#{productManagedBean.deleteProduct(product.id)}"   
+                                     onclick="return confirm('Da li želite izbisati proizvod?')"/>
+
                 </h:column>
             </h:dataTable>
         </h:form>
         <br/>
         <h:form>
             <h:panelGrid columns="1">
-                                 
-                 <h:outputText value="Proizvod:"/>
-                 <h:inputText id="productName" value="#{productManagedBean.name}" required="true" requiredMessage="Ime je obavezno"/>
+
+                <h:outputText value="Proizvod:"/>
+                <h:inputText id="productName" value="#{productManagedBean.name}" required="true" requiredMessage="Ime proizvoda je obavezno"/>
                 <h:message for="id" style="color: red"/>
-                
-                 <h:outputText value="Cijena:"/>
-                 <h:inputText id="price" value="#{productManagedBean.price}" required="true" requiredMessage="Cijena je obavezno"/>
+
+                <h:outputText value="Cijena:"/>
+                <h:inputText id="price" value="#{productManagedBean.price}" required="true" requiredMessage="Polje cijena je obavezno"/>
                 <h:message for="id" style="color: red"/>
-                
-                <h:commandButton value="Dodaj" action="#{productManagedBean.addProduct()}"/>
-                <h:outputText value="#{registerManageBean.message}" style="color: red"/>
-                
+
+                <h:commandButton value="Snimi" action="#{productManagedBean.addProduct()}"/>
+
             </h:panelGrid>
-                
-            </h:form>
+
+        </h:form>
     </h:body>
 </html>
 

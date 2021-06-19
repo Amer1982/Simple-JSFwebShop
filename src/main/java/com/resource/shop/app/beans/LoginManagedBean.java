@@ -31,8 +31,6 @@ public class LoginManagedBean implements Serializable{
         
         if(AccessPrivilege.USER.getId()==privilege.getId()){
             return "index";
-        /*if(user !=null){
-                   return "index";*/
         }else if (AccessPrivilege.ADMIN.getId()==privilege.getId()){
         return "admin";
         }else{

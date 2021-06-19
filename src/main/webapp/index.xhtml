@@ -38,6 +38,7 @@
                 <f:selectItem itemValue="2" itemLabel="2 proizvoda"/>
                 <f:selectItem itemValue="3" itemLabel="3 proizvoda"/>
                 <f:selectItem itemValue="4" itemLabel="4 proizvoda"/>
+                <f:selectItem itemValue="5" itemLabel="5 proizvoda"/>
             </h:selectOneMenu>
         </h:form>
 
@@ -63,9 +64,6 @@
                 <f:facet name="header">Ukupna cijena</f:facet>
                     #{shoppingCartItem.totalPrice}
             </h:column>
-            <h:button value="Kupi"/>
-
-            <h:outputText value="Vasa narudžba je primljena" style="color: red"/>
         </h:dataTable>
     </h:body>
 </html>

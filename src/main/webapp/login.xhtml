@@ -6,9 +6,11 @@
         <title>Prijava</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
-    <h:body style="padding: 60px; min-height: 2000px;">
-        <h3>Prijava novog korisnika</h3>
+    <h1>DOBRODOŠLI NA MOJ WEBSHOP</h1>
+    <h:body style="padding: 160px; min-height: 200px;">
+        <div  class="centerDiv" style="width: 400px">
         <h:form id="loginForm">
+            <h3>Prijava novog korisnika</h3>
             <h:panelGrid columns="3">
                 <h:outputText value="Korisničko ime:"/>
                 <h:inputText id="username" value="#{loginManagedBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>
@@ -20,10 +22,11 @@
                 
                 <h:commandButton value="Prijavi se" action="#{loginManagedBean.login()}"/>
                 <h:outputText value="#{loginManagedBean.message}" style="color: red"/>
-                
+                <h:button value="Registruj se" outcome="register.xhtml"/>
             </h:panelGrid>
         </h:form>
-        <h:button value="Registruj se" outcome="register.xhtml"/>
+        
+        </div>
     </h:body>
 </html>
 

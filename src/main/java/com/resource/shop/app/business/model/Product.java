@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.resource.shop.app.business.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -25,10 +20,6 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author bnc
- */
 @Entity
 @Table(name = "product")
 @XmlRootElement

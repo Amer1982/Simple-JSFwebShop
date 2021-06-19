@@ -25,34 +25,34 @@ public class ProductSessionBean implements ProductSessionBeanLocal {
         }
     }
 
+    @Override
     public Product getProductById(int id) {
         return (Product) entityManager.find(Product.class, id);
     }
 
+    @Override
     public void addProduct(Product product) {
         
-        //entityManager.getTransaction().begin();
         entityManager.persist(product);
-        //entityManager.getTransaction().commit();
     }
 
+    @Override
     public void editProduct(Product modifiedProduct) {
         
         Product existingProduct = getProductById(modifiedProduct.getId());
         if (existingProduct != null) {
             existingProduct.setName(modifiedProduct.getName());
-            //entityManager.getTransaction().begin();
+            
             entityManager.merge(existingProduct);
-            //entityManager.getTransaction().commit();
         }
     }
 
+    @Override
     public void deleteProduct(int productId) {
         Product existingProduct = getProductById(productId);
         if (existingProduct != null) {
-            //entityManager.getTransaction().begin();
+            
             entityManager.remove(existingProduct);
-            //entityManager.getTransaction().commit();
         }
     }
 }

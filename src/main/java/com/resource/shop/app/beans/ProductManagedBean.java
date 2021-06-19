@@ -1,7 +1,6 @@
 package com.resource.shop.app.beans;
 
 import com.resource.shop.app.beans.model.ShoppingCartItem;
-import com.resource.shop.app.business.HttpHandler;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import com.resource.shop.app.business.model.Product;
 import java.io.IOException;
 import javax.faces.context.FacesContext;
 
-@SessionScoped//on će čuvati korpu->ShoppingCart
+@SessionScoped
 @Named("productManagedBean")
 public class ProductManagedBean implements Serializable {
 
@@ -67,6 +66,7 @@ public class ProductManagedBean implements Serializable {
         Product product = new Product(id, name, price);
         if (product.getId() == 0) {
             productSessionBeanLocal.addProduct(product);
+            
         } else {
             productSessionBeanLocal.editProduct(product);
         }
@@ -74,18 +74,17 @@ public class ProductManagedBean implements Serializable {
     }
 
     public void goToEditProduct(Product product) throws IOException {
-        //HttpHandler.getInstance().addToSession("currentProduct", product);
+        
         name = product.getName();
         price = product.getPrice();
         id = product.getId();
         
-        //return "admin";
     }
 
     public void editProduct(Product product) throws IOException {
         productSessionBeanLocal.editProduct(product);
 
-        FacesContext.getCurrentInstance().getExternalContext().redirect("admin.xhtml"); //Redirect to home.xhtml
+        FacesContext.getCurrentInstance().getExternalContext().redirect("admin.xhtml"); //Redirect to admin.xhtml
     }
 
     public String deleteProduct(String idStr) {
